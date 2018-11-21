@@ -9,9 +9,9 @@ guessed		= ''	# Current successfully guessed characters
 wrong		= ''	# Current unsuccessful guessed characters
 
 # Select random word from dictionary file.
-# 
+#
 # @see http://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain
-# 
+#
 # @return	void
 def choose_word():
 	global rand_word
@@ -37,7 +37,7 @@ def has_won():
 def print_available_chars():
 	# Check a random word has been guessed
 	if rand_word is not None:
-		
+
 		# Print characters
 		for char in alphabet:
 			if char not in (wrong + guessed):
@@ -57,7 +57,7 @@ def print_progress():
 
 		# Print opening splitter
 		print(spliter)
-		
+
 		# Print characters
 		for char in rand_word:
 			print_char = '_'
@@ -92,7 +92,7 @@ def ask_user(question = 'Guess a character'):
 			ask_user('Try again')
 		else:
 			guessed += response
-		
+
 			if has_won():
 				won()
 			else:
@@ -110,7 +110,7 @@ def start():
 
 	wrong	= ''	# Reset wrong guessed characters
 	guessed	= ''	# Reset guessed characters
-	
+
 	choose_word()
 	print_progress()
 	ask_user()
@@ -128,6 +128,7 @@ def replay(question = 'Play again?'):
 # @return void
 def won():
 	print('Congratulations! You have successfully won the game!')
+	print('The word was "%s"' % rand_word)
 	replay()
 
 # Fired when the user has lost the game
